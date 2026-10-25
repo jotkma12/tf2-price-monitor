@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Monitor personal de precios de Team Fortress 2">
+  <title>TF2 Price Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">TF2</div>
+    <div class="brand-copy">
+      <h1>Price Monitor</h1>
+      <p>Seguimiento de precios · Team Fortress 2</p>
+    </div>
+    <span id="connection" class="status-pill">Configuración pendiente</span>
+  </header>
+
+  <main class="layout">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MARKET INTELLIGENCE</p>
+        <h2>Vigila el mercado.<br><span>No pierdas de vista un precio.</span></h2>
+        <p class="muted">Historial de observaciones de fuentes autorizadas, en un solo lugar.</p>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-label">Ítems registrados</span>
+        <strong id="itemCount">—</strong>
+        <span class="stat-foot">Datos verificados</span>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><span>Observaciones</span><strong id="observationCount">—</strong><small>En el historial</small></article>
+      <article class="stat-card"><span>Última actualización</span><strong id="lastUpdated">—</strong><small>Hora local</small></article>
+      <article class="stat-card"><span>Estado del monitor</span><strong id="monitorState">Pendiente</strong><small>GitHub Actions cada 12 h</small></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><p class="eyebrow">WATCHLIST</p><h3>Ítems vigilados</h3></div>
+        <input id="search" class="search" type="search" placeholder="Buscar ítem…" aria-label="Buscar ítem">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Artículo</th><th>Fuente</th><th>Tipo</th><th>Precio actual</th><th>Última observación</th></tr></thead>
+          <tbody id="itemsTable"><tr><td colspan="5" class="empty">Configura Supabase para mostrar precios verificados.</td></tr></tbody>
+        </table>
+      </div>
+      <p id="tableMessage" class="hint">No se muestran precios ficticios. Los datos aparecerán cuando el monitor guarde observaciones reales.</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><p class="eyebrow">PRICE HISTORY</p><h3>Historial de precios</h3></div>
+        <select id="itemSelect" class="select" aria-label="Seleccionar artículo"><option value="">Selecciona un artículo</option></select>
+      </div>
+      <div class="chart-wrap"><canvas id="priceChart" aria-label="Gráfica del historial de precios"></canvas></div>
+      <p id="chartMessage" class="hint">Selecciona un artículo con observaciones para ver su evolución.</p>
+    </section>
+
+    <footer>
+      <span>TF2 Price Monitor</span>
+      <span>Solo fuentes autorizadas · Sin compras automatizadas</span>
+    </footer>
+  </main>
+</body>
+</html>

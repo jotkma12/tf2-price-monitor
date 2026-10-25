@@ -1,0 +1,11 @@
+TF2 PRICE MONITOR — INICIO RÁPIDO
+
+1. Lee README.md completo.
+2. Ejecuta supabase/schema.sql en Supabase SQL Editor.
+3. Sube todo este proyecto a un repositorio GitHub.
+4. Configura GitHub Secrets tal como indica README.md.
+5. Publica GitHub Pages desde la carpeta /web.
+6. Solicita y verifica una API autorizada antes de configurar PRICE_API_URL.
+
+La web NO muestra precios ficticios. tracker.py no hace scraping de Mannco.Store.
+No pongas SUPABASE_SERVICE_ROLE_KEY ni tokens en web/config.js.
